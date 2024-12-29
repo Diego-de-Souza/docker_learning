@@ -1,0 +1,14 @@
+name: projeto_1 #nome 
+
+services: # o serviços que vão rodar
+  nodeapp: # o nome do serviço
+    build: #build da aplicação local
+      context: . #o ponto quer dizer repositório atual
+      dockerfile: dockerfile # não é necessário, mas opcional para dizer o nome de arquivo do build
+      args:
+        - VERSION=v1.2.0 #argumento
+    container_name: nodejs-compose # nome que será atribuido ao container
+    environment: #váriaveis de ambinete
+      - PORT=5000
+    ports:
+      - "5055:5000"
